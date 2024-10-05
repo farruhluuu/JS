@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slid {
+        width: 500px;
+        position: relative;
+        height: 250px;
+        margin-top: 50px;
+    }
+
+    #mainImg,
+    .slid button {
+        position: absolute;
+    }
+
+    #mainImg {
+        width: 500px;
+        height: 250px;
+        left: 0;
+        top: 0;
+    }
+
+    .slid button {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .slid .prev {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+
+    .imges {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .imges img {
+        width: 150px;
+        height: 80px;
+    }
+    </style>
+  <div class="slid">
+    <img id="mainImg" src="https://www.humanesociety.org/sites/default/files/2022-08/hl-yp-cats-579652.jpg" alt="">
+    <button class="prev" onclick="next()">next</button>
+    <button  onclick="prev()">prev</button>
+</div>
+<div class="imges">
+    <img class="img" onclick="handleClick(0)"
+        src="https://www.humanesociety.org/sites/default/files/2022-08/hl-yp-cats-579652.jpg" alt="">
+    <img class="img" onclick="handleClick(1)"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ31-OE4i9ST8qidcOnOnmfNJNHzfPfHWszGg&usqp=CAU" alt="">
+    <img class="img" onclick="handleClick(2)"
+        src="https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg"
+        alt="">
+    <img class="img" onclick="handleClick(3)"
+        src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png" alt="">
+</div>
+<body>
+<script>
+let mainImg = document.getElementById('mainImg')
+
+let i = 0;
+
+let images = [
+    'https://www.humanesociety.org/sites/default/files/2022-08/hl-yp-cats-579652.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ31-OE4i9ST8qidcOnOnmfNJNHzfPfHWszGg&usqp=CAU',
+    'https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg',
+    'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'
+] 
+
+let imes = document.getElementsByClassName('img')
+console.log(imes)
+
+const b = (index) => {
+    for(let i = 0; i < imes.length; i++){
+        imes[i].style.border = index === i ? '2px solid red' : null 
+    }
+}
+
+const handleClick = (index) => {
+    mainImg.src = images[index]
+    b(index)
+}
+
+
+const next = () => {
+    mainImg.src = images[i]
+    b(i)
+    if(i === 3){
+        i = 0
+    }else{
+        i++
+    }
+}
+
+const prev = () => {
+    mainImg.src = images[i]
+    b(i)
+    if(i === 0){
+        i = 3
+    } else {
+        i--
+    }
+}
+</script>
+</body>
+</html>

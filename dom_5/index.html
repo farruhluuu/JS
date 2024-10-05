@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="./films.html">films</a></li>
+        <li><a href="./people.html">peeple</a></li>
+        <li><a href="./index.html">planets</a></li>
+    </ul>
+    <ol id="films"></ol>
+    <script>
+        let films = document.getElementById("films");
+let people = document.getElementById("people");
+let planets = document.getElementById("planets");
+
+fetch("https://swapi.dev/api/films/")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    data.results.map(item => {
+      films.innerHTML += <li>${item.title}</li>
+    })
+  });
+
+fetch("https://swapi.dev/api/people/")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+  });
+
+fetch("https://swapi.dev/api/starships/")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+  });
+    </script>
+
+</body>
+</html>

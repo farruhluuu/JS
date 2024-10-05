@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #111;
+}
+.lampochka{
+  width: 462px;
+  height: 512px;
+  position: relative;
+}
+img{
+  margin-top: -50px;
+  height: 450px;
+  width: 100%;
+  position: absolute;
+}
+img#bulb-on{
+  opacity: 0;
+  animation: glow 3s linear infinite;
+}
+@keyframes glow {
+  0%{
+  opacity: 1;
+  }
+  5%{
+  opacity: 1;
+  }
+  70%{
+  opacity: 1;
+  }
+  74%{
+  opacity: 0;
+  }
+  80%{
+  opacity: 1;
+  }
+  84%{
+  opacity: 0;
+  }
+  90%{
+  opacity: 1;
+  }
+  100%{
+  opacity: 1;
+  }
+}
+.nuladnik{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nuladnik span {
+  height: 52px;
+  width: 194px;
+  display: block;
+  text-align: center;
+  line-height: 50px;
+  background: none;
+  color: #f3f0f0;
+  text-transform: uppercase;
+  font-size: 20px;
+  cursor: pointer;
+  border: 2px solid #c1c1c1;
+  border-radius: 100px;
+  transition: all 0.1s ease;
+}
+.nuladnik span:hover{
+  background: #fff;
+  color: #111;
+}
+#nuladnik:checked ~ .nuladnik span{
+  background: #fff;
+  color: #111;
+}
+.nuladnik span:before{
+  content: "выключить";
+}
+#nuladnik:checked ~ img#bulb-on{
+  animation: none;
+}
+#nuladnik:checked ~ .nuladnik span:before{
+  content: "включить";
+}
+.lampochka input{
+  display: none;
+}
+    </style>
+</head>
+<body>
+    <div class="lampochka">
+  <input type="checkbox" id="nuladnik">
+  <img id="bulb-off" src="http://images.vfl.ru/ii/1614546302/23e532c3/33509422.png">
+  <img id="bulb-on" src="http://images.vfl.ru/ii/1614546355/4786b4b5/33509426.png">
+  <label for="nuladnik" class="nuladnik">
+  <span></span>
+  </label>
+  </div>
+</body>
+</html>

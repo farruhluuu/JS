@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-position: center;
+            background-image: url(./1643303080_20-abrakadabra-fun-p-zadnii-fon-dlya-strimera-24.jpg);
+        }
+        .earth {
+            width: 100%;
+            height: 80px;
+            margin-top: 667px;
+            background-color: rgb(0, 3, 30);
+        }
+        .flugg {
+            width: 200px;
+            height: 300px;
+            top: 341px;
+            left: 1050px;
+            position: absolute;
+        }
+        .fut_flug {
+            width: 50px;
+            height: 50px;
+            margin-left: 80px;
+        }
+        .len_flug {
+            height: 200px;
+            width: 20px;
+            margin-left: 94px;
+            margin-top: 50px;
+        }
+        .blade {
+            width: 220px;
+            height: 220px;
+            top: -63px;
+            left: -6px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(60deg);
+            transition: 0.5s;
+        }
+        .lop {
+            width: 20px;
+            height: 20px;
+            border-radius: 50px;
+        }
+        .lop1, .lop2, .lop3 {
+            width: 20px;
+            height: 100px;
+            border-bottom-right-radius: 50px;
+            border-top-left-radius: 50px;
+            position: absolute;
+        }
+        .lop1 {
+            left: 101px;
+            top: 111px;
+        }
+        .lop2 {
+            left: 145px;
+            top: 34px;
+            transform: rotate(60deg);
+        }
+        .lop3 {
+            left: 56px;
+            top: 34px;
+            transform: rotate(-60deg);
+        }   
+        .lop1, .lop2, .lop3, .lop,  .len_flug, .fut_flug {
+            background-color: rgb(0, 1, 48);
+        }
+        @keyframes blade {
+            0% {
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .range {
+            position: absolute;
+            top: 670px;
+            left: 71%;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <input class="range" max="6" min="0" id="range_id" value="0" type="range">
+    <div class="flugg">
+        <div id="flug" class="blade">
+            <div class="lop"></div>
+            <div class="lop1"></div>
+            <div class="lop2"></div>
+            <div class="lop3"></div>
+        </div>
+        <div class="len_flug"></div>
+        <div class="fut_flug"></div>
+    </div>
+    <div class="earth"></div>
+
+    <script>
+        let flug = document.getElementById('flug');
+        let range = document.getElementById('range_id'); 
+
+        let num = 7
+
+        range.addEventListener('input', function () {       
+            flug.style.animation = `blade ${num - range.value === 7 ? 0 : num - range.value}s infinite linear`;
+            console.log(range.value - num)
+        }, false);
+
+
+    </script>
+</body>
+</html>
